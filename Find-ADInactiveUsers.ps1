@@ -125,7 +125,7 @@ Function Find-Accounts {
 
       Switch ($SearchScope) {
         'All' {
-          $global:Results = Get-ADUser -Filter { LastLogonDate -lt $InactiveDate -or LastLogonDate -notlike "*" -and Enabled -eq $true } -Properties LastLogonDate | Select-Object @{ Name="Username"; Expression = {$_.SamAccountName} }, Name, LastLogonDate, DistinguishedName
+          $global:Results = Get-ADUser -Filter { (LastLogonDate -lt $InactiveDate -or LastLogonDate -notlike "*") -and (Enabled -eq $true) } -Properties LastLogonDate | Select-Object @{ Name="Username"; Expression = {$_.SamAccountName} }, Name, LastLogonDate, DistinguishedName
         }
 
         'OnlyInactiveUsers' {

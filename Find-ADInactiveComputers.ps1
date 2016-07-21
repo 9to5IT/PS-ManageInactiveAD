@@ -104,7 +104,7 @@ Function Find-Objects {
     Try {
       Switch ($SearchScope) {
         'All' {
-          $global:Results = Get-ADComputer -Filter { LastLogonDate -lt $InactiveDate -or LastLogonDate -notlike "*" -and Enabled -eq $true } -Properties LastLogonDate | Select-Object Name, LastLogonDate, DistinguishedName
+          $global:Results = Get-ADComputer -Filter { (LastLogonDate -lt $InactiveDate -or LastLogonDate -notlike "*") -and (Enabled -eq $true) } -Properties LastLogonDate | Select-Object Name, LastLogonDate, DistinguishedName
         }
 
         'OnlyInactiveComputers' {
