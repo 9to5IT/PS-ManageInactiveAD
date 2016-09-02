@@ -60,12 +60,12 @@
 .EXAMPLE
   Reporting and disabling all inactive computer objects, except never logged on objects. Storing the report in C:\Reports.
 
-  .\Find-ADInactiveComputers.ps1 -SeachScope OnlyInactiveComputers -ReportFilePath 'C:\Reports\DisabledComputers.csv' -DisableObjects
+  .\Find-ADInactiveComputers.ps1 -SearchScope OnlyInactiveComputers -ReportFilePath 'C:\Reports\DisabledComputers.csv' -DisableObjects
 
 .EXAMPLE
   Find & delete all inactive computer objects that haven't logged in for the last 30 days. Include never logged on objects in this search.
 
-  .\Find-ADInactiveComputers.ps1 -SeachScope All -DaysInactive 30 -DeleteObjects
+  .\Find-ADInactiveComputers.ps1 -SearchScope All -DaysInactive 30 -DeleteObjects
 #>
 
 #---------------------------------------------------------[Script Parameters]------------------------------------------------------

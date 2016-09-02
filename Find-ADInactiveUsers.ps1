@@ -27,13 +27,13 @@
   script.
 
 .PARAMETER ServiceAccountIdentifier
-  Optional. The username prefix or postfix that is used to indetify a service account from a standard user account. The default option is 'svc'.
+  Optional. The username prefix or postfix that is used to identify a service account from a standard user account. The default option is 'svc'.
   Determining whether an account is a service account is useful in order to be able to include or exclude service accounts from the search scope.
 
-  Note: For more information see the help information on the parameter SearchScope. 
+  Note: For more information see the help information on the parameter SearchScope.
 
   Example: All accounts with the prefix or postfix of svc (e.g. svc-MyAccount or MyAccount-svc) are identified as service accounts and can
-  therefore be included or exclueded from the search scope.
+  therefore be included or excluded from the search scope.
 
 .PARAMETER ReportFilePath
   Optional. This is the location where the report of inactive users will be saved to. If this parameter is not specified, the default location the
@@ -72,17 +72,17 @@
 .EXAMPLE
   Reporting and disabling all user accounts, except never logged on accounts. Storing the report in C:\Reports.
 
-  .\Find-ADInactiveUsers.ps1 -SeachScope AllExceptNeverLoggedOn -ReportFilePath 'C:\Reports\DisabledUsers.csv' -DisableUsers
+  .\Find-ADInactiveUsers.ps1 -SearchScope AllExceptNeverLoggedOn -ReportFilePath 'C:\Reports\DisabledUsers.csv' -DisableUsers
 
 .EXAMPLE
   Find & delete all inactive users (not service accounts) that haven't logged in for the last 30 days. Include never logged on accounts in this search.
 
-  .\Find-ADInactiveUsers.ps1 -SeachScope AllExceptServiceAccounts -DaysInactive 30 -DeleteUsers
+  .\Find-ADInactiveUsers.ps1 -SearchScope AllExceptServiceAccounts -DaysInactive 30 -DeleteUsers
 
 .EXAMPLE
   Delete all user accounts that have never been logged into. Store the report in C:\Reports.
 
-  .\Find-ADInactiveUsers.ps1 -SeachScope OnlyNeverLoggedOn -ReportFilePath 'C:\Reports\NotLoggedOnAccounts.csv' -DeleteUsers
+  .\Find-ADInactiveUsers.ps1 -SearchScope OnlyNeverLoggedOn -ReportFilePath 'C:\Reports\NotLoggedOnAccounts.csv' -DeleteUsers
 #>
 
 #---------------------------------------------------------[Script Parameters]------------------------------------------------------
@@ -149,7 +149,7 @@ Function Find-Accounts {
         }
 
         Default {
-          Write-Host -BackgroundColor Red "Error: An unknown error occcurred. Can't determine search scope. Exiting."
+          Write-Host -BackgroundColor Red "Error: An unknown error occurred. Can't determine search scope. Exiting."
           Break
         }
       }
