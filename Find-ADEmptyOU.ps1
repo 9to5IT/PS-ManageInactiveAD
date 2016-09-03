@@ -11,7 +11,7 @@
 
 .PARAMETER SearchScope
   Optional. Specifies an Active Directory Path to search under. This is primarily used to narrow down your search within a certain OU and it's children.
-  Search Scope must be specfied in LDAP format. If not specified, the default search scope is the root of the domain.
+  Search Scope must be specified in LDAP format. If not specified, the default search scope is the root of the domain.
 
   Example: -SearchScope "OU=MGT,DC=testlab,DC=com"
 
@@ -49,7 +49,7 @@
 .EXAMPLE
   Reporting and deleting all empty OUs found within the MGT OU. Store the report in C:\Reports.
 
-  .\Find-ADEmptyOU.ps1 -SeachScope "OU=MGT,DC=testlab,DC=com" -ReportFilePath 'C:\Reports\DeletedOUs.csv' -DeleteObjects
+  .\Find-ADEmptyOU.ps1 -SearchScope "OU=MGT,DC=testlab,DC=com" -ReportFilePath 'C:\Reports\DeletedOUs.csv' -DeleteObjects
 #>
 
 #---------------------------------------------------------[Script Parameters]------------------------------------------------------
